@@ -10,7 +10,7 @@ public class Canonontroller : MonoBehaviour
     //4í—Ş‚Ì‘å–C
     [SerializeField] List<GameObject>canonn;
     //’e
-    [SerializeField]GameObject canonnball;
+    [SerializeField]List<GameObject> canonnball;
     int canonnspeed=1000;
     //random
     List<int> randomTime = new List<int>();
@@ -36,7 +36,7 @@ public class Canonontroller : MonoBehaviour
             if (count % randomTime[index] == 0)
                 {
 
-                    GameObject shell = Instantiate(canonnball, canonn[i].transform.position, Quaternion.identity);
+                    GameObject shell = Instantiate(canonnball[Random.Range(0,3)], canonn[i].transform.position, Quaternion.identity);
                     Rigidbody shellRb = shell.GetComponent<Rigidbody>();
                 //ŠeX‚ÌˆÊ’u‚©‚ç”ò‚Î‚·
                     switch(i)
