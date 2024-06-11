@@ -10,21 +10,24 @@ using static UnityEditor.PlayerSettings;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] Collision character;
+    [SerializeField] GameObject present;
+    [SerializeField] GameObject bell;
     private Rigidbody rb;
     float jumpPower = 200f;
     //地面についているかどうか
     bool isJumping = false;
+    //プレゼントバフをもらっているかどうか
+    bool presentbuff;
     //速度
     float speed = 5f;
     public void Start()
     {
 
         this.rb = GetComponent<Rigidbody>();
- 
     }
 
     // Update is called once per frame
-    private void Update()
+     void Update()
     {
 
         Vector3 characterpos = transform.position;
@@ -63,6 +66,16 @@ public class CharacterManager : MonoBehaviour
         {
             isJumping = false;
         }
+        if(collision.gameObject.CompareTag("presentbuff"))
+        {
+            Destroy(present.gameObject);
+            StartCoroutine("ChangeColor");
+        }
+    }
+    IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(5.0f);
+
     }
 }
  

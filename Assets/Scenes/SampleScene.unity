@@ -1902,8 +1902,8 @@ MonoBehaviour:
   canonnball:
   - {fileID: 162592, guid: b03851801ad4427499ef073e81939289, type: 3}
   - {fileID: 162592, guid: b03851801ad4427499ef073e81939289, type: 3}
-  - {fileID: 162592, guid: b03851801ad4427499ef073e81939289, type: 3}
-  - {fileID: 162592, guid: b03851801ad4427499ef073e81939289, type: 3}
+  - {fileID: 135838, guid: d5efa09b3a3558b4386e5524bfeec0ed, type: 3}
+  - {fileID: 135838, guid: d5efa09b3a3558b4386e5524bfeec0ed, type: 3}
 --- !u!1001 &526886595
 PrefabInstance:
   m_ObjectHideFlags: 0
