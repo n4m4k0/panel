@@ -10,7 +10,7 @@ public class Canonontroller : MonoBehaviour
     //4éÌóﬁÇÃëÂñC
     [SerializeField] List<GameObject>canonn;
     //íe
-    [SerializeField]List<GameObject> canonnball;
+    [SerializeField] List<GameObject> canonnball;
     int canonnspeed=1000;
     //random
     List<int> randomTime = new List<int>();
@@ -21,42 +21,43 @@ public class Canonontroller : MonoBehaviour
         randomTime.Add(7200);
     }
 
-    private int count;
-    int index;
+    int count;
+    private int index;
     // Update is called once per frame
     void Update()
     {
-        count += 1;
-       
+        //
+        int rand = (int)Random.Range(1,10000);
+
         for (int i = 0; i < canonn.Count; i++)
         {
-           
-            // ÅiÉ|ÉCÉìÉgÅj
-            // ÇUÇOÉtÉåÅ[ÉÄÇ≤Ç∆Ç…ñCíeÇî≠éÀÇ∑ÇÈ
-            if (count % randomTime[index] == 0)
-                {
-
+            if (rand  <= 5)
+            {
                     GameObject shell = Instantiate(canonnball[Random.Range(0,3)], canonn[i].transform.position, Quaternion.identity);
                     Rigidbody shellRb = shell.GetComponent<Rigidbody>();
                 //äeÅXÇÃà íuÇ©ÇÁîÚÇŒÇ∑
-                    switch(i)
+                switch(i)
                 {
+
                     case 0:
-                        // íeë¨ÇÕé©óRÇ…ê›íË
-                        shellRb.AddForce(transform.forward * canonnspeed);
+                            // íeë¨ÇÕé©óRÇ…ê›íË
+                            shellRb.AddForce(transform.forward * canonnspeed);
+                        
                         break;
                      case 1:
-                        //shellRb.GetComponent<Transform>().Rotate(new Vector3(0, -90, 00));
-                        shellRb.AddForce(transform.right * -canonnspeed);
+                            shellRb.AddForce(transform.right * -canonnspeed);
+                        
                         break;
                     case 2:
-                        //shellRb.GetComponent<Transform>().Rotate(new Vector3(0, 180, 00));
-                        shellRb.AddForce(transform.forward * -canonnspeed);
+                            shellRb.AddForce(transform.forward * -canonnspeed);
+                        
                         break;
+
                     case 3:
-                        //shellRb.GetComponent<Transform>().Rotate(new Vector3(0, 90, 00));
-                        shellRb.AddForce(transform.right * canonnspeed);
+                            shellRb.AddForce(transform.right * canonnspeed);
+                        
                         break;
+ 
                     default:
                         break;
                 }
@@ -65,6 +66,6 @@ public class Canonontroller : MonoBehaviour
                 Destroy(shell, 5.0f);
                 index = (int)Random.Range(0, 2);
             }
-            }
+        }count += 1;
     }
 }

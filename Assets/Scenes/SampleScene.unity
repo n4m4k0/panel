@@ -237,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c213f2aedf7f84d8418fb68ed5cdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  present: {fileID: 162592, guid: b03851801ad4427499ef073e81939289, type: 3}
+  bell: {fileID: 135838, guid: d5efa09b3a3558b4386e5524bfeec0ed, type: 3}
 --- !u!54 &50452471
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ using static UnityEditor.PlayerSettings;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] Collision character;
-    [SerializeField] GameObject present;
+   [SerializeField] GameObject present;
     [SerializeField] GameObject bell;
     private Rigidbody rb;
     float jumpPower = 200f;
@@ -69,13 +69,8 @@ public class CharacterManager : MonoBehaviour
         if(collision.gameObject.CompareTag("presentbuff"))
         {
             Destroy(present.gameObject);
-            StartCoroutine("ChangeColor");
-        }
-    }
-    IEnumerator ChangeColor()
-    {
-        yield return new WaitForSeconds(5.0f);
 
+        }
     }
 }
  

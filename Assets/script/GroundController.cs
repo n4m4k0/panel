@@ -53,7 +53,7 @@ public class GrounController : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (groundTime > 3)
         {
-            groundTime -= 1;
+            groundTime -= 1;    
         }
     }
     //床が時間で落ちる判定
@@ -62,12 +62,11 @@ public class GrounController : MonoBehaviour
         isCroutine[croutineListIndex] = true;
         yield return new WaitForSeconds(seconds: groundTime);
 
-        Debug.Log("アクティブオフ");
+       
         ChangeActive(groudameObject,false);
 
         yield return new WaitForSeconds(seconds: 1f);
 
-        Debug.Log("アクティブオン");
         isCroutine[croutineListIndex] = false;
         ChangeActive(groudameObject, true);
     }
