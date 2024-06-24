@@ -18,11 +18,13 @@ public class CharacterManager : MonoBehaviour
     bool isJumping = false;
     //プレゼントバフをもらっているかどうか
     bool presentbuff;
-    //速度
+    //速度関係
     float speed = 5f;
+    public float moveSpeed;
+    
     public void Start()
     {
-
+        moveSpeed = speed;
         this.rb = GetComponent<Rigidbody>();
     }
 
@@ -68,9 +70,20 @@ public class CharacterManager : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("presentbuff"))
         {
-            Destroy(present.gameObject);
-
+            Destroy(collision.gameObject);      
         }
+        if(collision.gameObject.CompareTag("bell"))
+        {
+            moveSpeed = moveSpeed / 5;
+            Destroy(collision.gameObject);
+
+            Invoke("SpeedReset", 2.0f);
+        }
+    }
+    void SpeedReset()
+    {
+        // 速度を元に戻す。
+        moveSpeed = speed;
     }
 }
  
